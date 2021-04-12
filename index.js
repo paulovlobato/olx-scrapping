@@ -3,6 +3,8 @@ const url = 'https://pa.olx.com.br/regiao-de-belem/belem/audio-tv-video-e-fotogr
 const axios = require('axios')
 const cheerio = require('cheerio')
 const fs = require('fs')
+const express = require('express');
+const app = express();
 
 const dados = []
 
@@ -75,4 +77,8 @@ const main = async () => {
     await showDados();
 }
 
-main();
+app.listen(3000, () => {
+    console.info("Server running on port 3000")
+});
+
+// main();

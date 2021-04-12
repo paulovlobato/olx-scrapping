@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "cheerio": "*",
+    "express": "^4.17.1",
     "nodemailer": "^6.5.0",
     "nodemailer-sendgrid-transport": "^0.2.0"
   }

@@ -117,7 +117,11 @@ const main = async () => {
 
 const sentry = () => {
     console.info('Poking Web scrapper... you in there, budy? Don\'t you sleep!')
-    var response = axios.get('https://olx-scrapping.herokuapp.com/')
+    try {
+        var response = axios.get('https://olx-scrapping.herokuapp.com/')
+    } catch (e) {
+        console.error(e)
+    }
 }
 
 // main();

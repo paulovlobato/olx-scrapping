@@ -12,27 +12,36 @@ const transporter = nodemailer.createTransport(
 )
 
 const deleteReport = () => {
-    try {
-        fs.unlinkSync('./index.html');
-        console.info("File deleted!");
-    } catch (e) {
-        console.error(`Failed to delete file. Error: ${e}`)
+    file = './index.html'
+    console.info("=== Deleting report...")
+    if (fs.existsSync(file)) {
+        //file exists
+        try {
+            fs.unlinkSync('./index.html');
+            console.info("File deleted!");
+        } catch (e) {
+            console.error(`Failed to delete file. Error: ${e}`)
+        }
+    } else {
+        console.info("No report file to delete")
     }
 }
 
 const sendMail = () => {
-    console.info('Dispatching e-mail')
-    transporter.sendMail({
-        to: 'pvlobato@gmail.com',
-        from: 'pvlobato@gmail.com',
-        subject: 'OLX_SCRAPPING_BOT: Novos Anúncios de TV em Belém/PA',
-        html: ({path: './index.html'})
-    })
+    file = './index.html'
+    console.info('=== Dispatching e-mail')
+    if (fs.existsSync(file)) {
+        transporter.sendMail({
+            to: 'pvlobato@gmail.com',
+            from: 'pvlobato@gmail.com',
+            subject: 'OLX_SCRAPPING_BOT: Novos Anúncios de TV em Belém/PA',
+            html: ({path: './index.html'})
+        })
+        console.info('E-mail dispatched!')
+    } else {
+        console.info("No e-mail to dispatch")
+    }
 }
 
-const main = async() => {
-    await sendMail();
-    await deleteReport();
-}
-
-main();
+module.exports.sendMail = sendMail;
+module.exports.deleteReport = deleteReport;

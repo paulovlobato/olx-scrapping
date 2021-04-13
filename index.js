@@ -8,6 +8,7 @@ const app = express();
 const insertMany = require('./db').insertMany
 const sendMail = require('./mail').sendMail
 const deleteReport = require('./mail').deleteReport
+var CronJob = require('cron').CronJob;
 
 const dados = []
 
@@ -114,10 +115,15 @@ const main = async () => {
 
 }
 
-main();
+// main();
+
+var job = new CronJob('*/30 * * * *', function() {
+    main();
+  }, null, true, 'America/Los_Angeles');
+job.start();
 
 const PORT = process.env.PORT || 3000;
 
-// app.listen(PORT, () => {
-//     console.info("Server running on port 3000")
-// });
+app.listen(PORT, () => {
+    console.info("Server running on port 3000")
+});

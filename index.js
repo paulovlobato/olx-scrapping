@@ -115,10 +115,16 @@ const main = async () => {
 
 }
 
+const sentry = () => {
+    console.info('Poking Web scrapper... you in there, budy? Don\'t you sleep!')
+    var response = axios.get('https://olx-scrapping.herokuapp.com/')
+}
+
 // main();
 
-var job = new CronJob('*/30 * * * *', function() {
+var job = new CronJob('*/20 * * * *', function() {
     main();
+    sentry();
   }, null, true, 'America/Los_Angeles');
 job.start();
 

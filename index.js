@@ -115,10 +115,10 @@ const main = async () => {
 
 }
 
-const sentry = () => {
+const sentry = async () => {
     console.info('Poking Web scrapper... you in there, budy? Don\'t you sleep!')
     try {
-        var response = axios.get('https://olx-scrapping.herokuapp.com/')
+        var response = await axios.get('https://olx-scrapping.herokuapp.com/')
     } catch (e) {
         console.error(e)
     }

@@ -69,5 +69,5 @@ const asyncSendMail = async () => {
     });
 }
 
-module.exports.sendMail = asyncSendMail;
+module.exports.sendMail = sendMail;
 module.exports.deleteReport = deleteReport;

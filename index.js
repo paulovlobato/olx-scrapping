@@ -111,7 +111,7 @@ const main = async () => {
 
     showDados()
     .then(() => sendMail())
-    .then(() => deleteReport())
+    // .then(() => deleteReport())
     .then(() => { console.log("\n===Finished everything===") })
 
 }

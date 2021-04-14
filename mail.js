@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer')
 const sendgridTransport = require('nodemailer-sendgrid-transport')
 const fs = require('fs')
+// const deleteReport = require('./mail').deleteReport
 
 const transporter = nodemailer.createTransport(
     sendgridTransport({
@@ -31,13 +32,20 @@ const sendMail = async () => {
     file = './index.html'
     console.info('=== Dispatching e-mail')
     if (fs.existsSync(file)) {
-        await transporter.sendMail({
+        transporter.sendMail({
             to: 'pvlobato@gmail.com',
             from: 'pvlobato@gmail.com',
             subject: 'OLX_SCRAPPING_BOT: Novos Anúncios de TV em Belém/PA',
             html: ({path: './index.html'})
+        }, (err, info) => {
+            if (!err) {
+                console.info('E-mail dispatched!')
+                deleteReport()
+            } else {
+                console.error(`Problem with Transporter. Error: ${error}`)
+            }
+            
         })
-        console.info('E-mail dispatched!')
     } else {
         console.info("No e-mail to dispatch")
     }

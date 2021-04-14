@@ -133,6 +133,11 @@ var job = new CronJob('*/20 * * * *', function() {
   }, null, true, 'America/Los_Angeles');
 job.start();
 
+var sentryJob = new CronJob('*/20 * * * *', function() {
+    sentry();
+  }, null, true, 'America/Los_Angeles');
+sentryJob.start();
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {

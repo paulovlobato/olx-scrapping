@@ -121,7 +121,7 @@ const sentry = async () => {
     try {
         var response = await axios.get('https://olx-scrapping.herokuapp.com/')
     } catch (e) {
-        console.error(e)
+        console.error(`Error during Sentry call. Error: ${e.response.status}`)
     }
 }
 

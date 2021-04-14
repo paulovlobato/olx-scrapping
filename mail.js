@@ -27,11 +27,11 @@ const deleteReport = () => {
     }
 }
 
-const sendMail = () => {
+const sendMail = async () => {
     file = './index.html'
     console.info('=== Dispatching e-mail')
     if (fs.existsSync(file)) {
-        transporter.sendMail({
+        await transporter.sendMail({
             to: 'pvlobato@gmail.com',
             from: 'pvlobato@gmail.com',
             subject: 'OLX_SCRAPPING_BOT: Novos Anúncios de TV em Belém/PA',
@@ -43,5 +43,30 @@ const sendMail = () => {
     }
 }
 
-module.exports.sendMail = sendMail;
+const asyncSendMail = async () => {
+    file = './index.html'
+
+    return new Promise((resolve, reject) => {
+        console.info('=== Dispatching e-mail')
+        if (fs.existsSync(file)) {
+            transporter.sendMail({
+                to: 'pvlobato@gmail.com',
+                from: 'pvlobato@gmail.com',
+                subject: 'OLX_SCRAPPING_BOT: Novos Anúncios de TV em Belém/PA',
+                html: ({path: './index.html'})
+            }, function (error, info) {
+                if (error) {
+                    console.error(`Problem with Transporter. Error: ${error}`)
+                }
+            })
+            console.info('E-mail dispatched!')
+            resolve(true)
+        } else {
+            console.info("No e-mail to dispatch")
+            resolve(true)
+        }
+    });
+}
+
+module.exports.sendMail = asyncSendMail;
 module.exports.deleteReport = deleteReport;

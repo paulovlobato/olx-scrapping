@@ -1,8 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const fs = require('fs')
 
-const uri = "mongodb+srv://olx-scrapping:4hD7nWHFF8OaLaZN@cluster0.vi1lx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 // const client = new MongoClient(uri);
 
 /**
@@ -32,6 +30,10 @@ var insertItem = async function (item) {
 
 var insertMany = async function (listItems) {
     try {
+        const uri = "mongodb+srv://olx-scrapping:4hD7nWHFF8OaLaZN@cluster0.vi1lx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+        const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+        console.info('Connecting to Atlas DB...')
         await client.connect();
 
         const db = client.db('olx-scrapping')

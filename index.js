@@ -37,6 +37,7 @@ const links = async () => {
 
 const coletaDados = async (pg) => {
     try {
+        console.info(`Coletando dados do link: ${pg}`)
         const res = await axios.get(pg);
         const html = res.data;
         const $ = await cheerio.load(html)
@@ -124,7 +125,7 @@ const sentry = async () => {
     }
 }
 
-// main();
+main();
 
 var job = new CronJob('*/20 * * * *', function() {
     main();

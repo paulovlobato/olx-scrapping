@@ -132,7 +132,7 @@ var job = new CronJob('*/20 * * * *', function() {
   }, null, true, 'America/Los_Angeles');
 job.start();
 
-var sentryJob = new CronJob('*/20 * * * *', function() {
+var sentryJob = new CronJob('*/15 * * * *', function() {
     sentry();
   }, null, true, 'America/Los_Angeles');
 sentryJob.start();

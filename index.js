@@ -129,7 +129,6 @@ main();
 
 var job = new CronJob('*/20 * * * *', function() {
     main();
-    sentry();
   }, null, true, 'America/Los_Angeles');
 job.start();
 

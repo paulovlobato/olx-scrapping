@@ -37,7 +37,7 @@ const links = async () => {
 
 const coletaDados = async (pg) => {
     try {
-        console.info(`Coletando dados do link: ${pg}`)
+        //console.info(`Coletando dados do link: ${pg}`)
         const res = await axios.get(pg);
         const html = res.data;
         const $ = await cheerio.load(html)
@@ -69,7 +69,7 @@ const coletaDados = async (pg) => {
         resultJson.link = pg
 
         if (!codigo) {
-            console.info("Blank code for item: " + pg)
+            //console.info("Blank code for item: " + pg)
         }
 
         // gerarHtml(result);

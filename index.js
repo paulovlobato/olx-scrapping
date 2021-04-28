@@ -1,4 +1,5 @@
-const url = 'https://pa.olx.com.br/regiao-de-belem/belem/audio-tv-video-e-fotografia/tvs?sf=1'
+//const url = 'https://pa.olx.com.br/regiao-de-belem/belem/audio-tv-video-e-fotografia/tvs?sf=1'
+const url = 'https://pa.olx.com.br/regiao-de-belem/belem/audio-tv-video-e-fotografia/home-theater-receiver-e-modulos'
 
 const axios = require('axios')
 const cheerio = require('cheerio')

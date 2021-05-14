@@ -43,11 +43,11 @@ const coletaDados = async (pg) => {
         const html = res.data;
         const $ = await cheerio.load(html)
 
-        let nomeProduto = $('#content > div.sc-18p038x-3.dSrKbb > div > div.sc-bwzfXH.h3us20-0.cBfPri > div.duvuxf-0.h3us20-0.jAHFXn > div.h3us20-6.chzacc > h1').text()
-        let valor = $('#content > div.sc-18p038x-3.dSrKbb > div > div.sc-bwzfXH.h3us20-0.cBfPri > div.duvuxf-0.h3us20-0.cpscHx > div:nth-child(7) > div > div.sc-hmzhuo.dtdGqP.sc-jTzLTM.iwtnNi > div.sc-hmzhuo.sc-12l420o-0.kUWFYY.sc-jTzLTM.iwtnNi > h2').text()
-        let publicacao = $('#content > div.sc-18p038x-3.dSrKbb > div > div.sc-bwzfXH.h3us20-0.cBfPri > div.duvuxf-0.h3us20-0.jAHFXn > div.h3us20-6.eQxFPs > div.h3us20-2.bdQAUC > div > span.sc-1oq8jzc-0.jvuXUB.sc-ifAKCX.fizSrB').text()
-        let codigo = $('#content > div.sc-18p038x-3.dSrKbb > div > div.sc-bwzfXH.h3us20-0.cBfPri > div.duvuxf-0.h3us20-0.jAHFXn > div.h3us20-6.eQxFPs > div.h3us20-2.bdQAUC > div > span.sc-16iz3i7-0.qJvUT.sc-ifAKCX.fizSrB').text()
-        let imagem = $('#content > div.sc-18p038x-3.dSrKbb > div > div.sc-bwzfXH.h3us20-0.cBfPri > div.duvuxf-0.h3us20-0.jAHFXn > div.h3us20-6.dBUmvT > div > div > div.sc-28oze1-1.gnyoQn > div > div.sc-28oze1-3.zSAIq > div:nth-child(1) > img').attr('src')
+        let nomeProduto = $('#content > div.sc-18p038x-3.dSrKbb > div > div.sc-bwzfXH.h3us20-0.cBfPri > div.duvuxf-0.h3us20-0.jAHFXn > div.h3us20-6.gFNxVM > div > div > h1').text()
+        let valor = $('#content > div.sc-18p038x-3.dSrKbb > div > div.sc-bwzfXH.h3us20-0.cBfPri > div.duvuxf-0.h3us20-0.cpscHx > div.h3us20-6.jUPCvE > div > div > div.sc-hmzhuo.dtdGqP.sc-jTzLTM.iwtnNi > div.sc-hmzhuo.sc-12l420o-0.kUWFYY.sc-jTzLTM.iwtnNi > h2').text()
+        let publicacao = $('#content > div.sc-18p038x-3.dSrKbb > div > div.sc-bwzfXH.h3us20-0.cBfPri > div.duvuxf-0.h3us20-0.jAHFXn > div.h3us20-6.hzUJDA > div > div > div > span.sc-1oq8jzc-0.jvuXUB.sc-ifAKCX.fizSrB').text()
+        let codigo = $('#content > div.sc-18p038x-3.dSrKbb > div > div.sc-bwzfXH.h3us20-0.cBfPri > div.duvuxf-0.h3us20-0.jAHFXn > div.h3us20-6.hzUJDA > div > div > div > span.sc-16iz3i7-0.qJvUT.sc-ifAKCX.fizSrB').text()
+        let imagem = $('#content > div.sc-18p038x-3.dSrKbb > div > div.sc-bwzfXH.h3us20-0.cBfPri > div.duvuxf-0.h3us20-0.jAHFXn > div.h3us20-6.fAprjt > div > div > div > div.sc-28oze1-1.gnyoQn > div > div.sc-28oze1-3.zSAIq > div:nth-child(1) > img').attr('src')
 
         const resultHtml = `
         <h1>Produto: ${nomeProduto}</h1>
